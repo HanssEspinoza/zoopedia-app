@@ -19,10 +19,13 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    "paths": {
+      "@core/*": ["./src/app/core/*"],
+      "@auth/*": ["./src/app/auth/*"],
+      "@shared/*": ["./src/app/shared/*"],
+      "@zoopedia/*": ["./src/app/zoopedia/*"]
+    },
+    "lib": ["ES2022", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
