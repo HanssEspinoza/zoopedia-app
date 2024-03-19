@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: '',
+    path: 'auth',
     loadChildren: () => import('@auth/auth.routes').then((m) => m.authRoutes),
   },
   {
@@ -11,8 +11,17 @@ export const routes: Routes = [
       import('@zoopedia/zoopedia.routes').then((m) => m.zoopediaRoutes),
   },
   {
-    path: '**',
-    redirectTo: '/',
+    path: '404',
+    loadComponent: () =>
+      import('@shared/pages').then((m) => m.Error404Component),
+  },
+  {
+    path: '',
+    redirectTo: 'dashboard',
     pathMatch: 'full',
   },
+  {
+    path: '**',
+    redirectTo: '404'
+  }
 ];
