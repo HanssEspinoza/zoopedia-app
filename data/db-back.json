@@ -1,0 +1,47 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "usuario": "John Doe",
+      "email": "jhon.doe@gmail.com"
+    }
+  ],
+  "animals": [
+    {
+      "id": "mammal-bornean-orangutan",
+      "name": "Orangután de Borneo",
+      "category": "Mamífero",
+      "region": "Tropical",
+      "conservation_status": "En peligro Crítico",
+      "scientific_name": "Pongo Pygmaeus",
+      "description": "Como indica su nombre, el orangután de Borneo (Pongo pygmaeus) es nativo de la isla homónima, tanto de la parte indonesia como de la malaya. Son unos grandes simios reconocibles por su pelaje rojizo y su piel marrón. Los machos, además, presentan unas grandes bridas en las mejillas y una bolsa en la garganta con la que emiten sonidos fuertes para atraer a las hembras. Son unos animales extremadamente inteligentes que utilizan herramientas para conseguir comida. Sin embargo, no saben nadar y su territorio suele quedar delimitado por aquellos ríos que no consiguen atravesar."
+    },
+    {
+      "id": "bird-emu",
+      "name": "Emú",
+      "category": "Pájaro",
+      "region": "Pradera",
+      "conservation_status": "Preocupación menor",
+      "scientific_name": "Dromaius novaehollandiae",
+      "description": "El emú (Dromaius novaehollandiae) es la segunda especie de ave no voladora más grande del mundo por detrás del avestruz, y habita en las sabanas y bosques de Australia. Posee un cuello largo y sin plumas que puede presentar un tono azulado, un plumaje marrón desgreñado que comienza a mitad del cuello y largas patas grises con grandes garras de tres dedos. También tienen el pico gris y los ojos naranjas, y cuentan con un penacho sobre la cabeza. Los machos y las hembras son similares, aunque estas suelen ser más grandes y pesadas. Los emúes macho miden entre 1,5 m y 1,8 m de alto y de 1,39 m a 1,57 m de largo, y su peso oscila entre los 30 kg y los 55 kg. Las hembras, por su parte, miden entre 1,6 m y 1,9 m de alto y de 1,5 m a 1,64 m de largo, con un peso entre 35 kg y 60 kg."
+    },
+    {
+      "id": "mammal-lar-gibbon",
+      "name": "Gibón de Manos Blancas",
+      "category": "Mamífero",
+      "region": "Tropical",
+      "conservation_status": "En Peligro",
+      "scientific_name": "Hylobates lar",
+      "description": "El gibón de manos blancas (Hylobates lar) es un primate que vive en las selvas de Indonesia, Laos, Malasia, Birmania y Tailandia. Su pelaje puede variar del color marrón oscuro al rojizo, tostado o crema. Su cara es negra y está enmarcada por un aro característico de pelo blanco. Sus manos y patas también son blancas. Los machos y las hembras de esta especie son muy similares, con una longitud de 42 cm a 59 cm y un peso de 4 kg a 7,6 kg."
+    },
+    {
+      "id": "bird-southern-cassowary",
+      "name": "Casuario Austral",
+      "category": "Pájaro",
+      "region": "Tropical",
+      "conservation_status": "Preocupación menor",
+      "scientific_name": "Casuarius casuarius",
+      "description": "El casuario austral es una gran ave incapaz de volar que habita las selvas, manglares y praderas de Papúa Nueva Guinea, Indonesia y el norte de Australia. Tiene plumas negras con aspecto de pelo enmarañado, además de patas y garras grises y robustas. El casuario austral presenta un característico casco marrón sobre la cabeza y un pico curvo marrón oscuro, mientras que el cuello es de un azul brillante y la parte superior de la cabeza, azul claro. La parte trasera del cuello es naranja y cuenta con dos papos rojos colgantes en la garganta. A pesar de que ambos sexos son similares, las hembras son bastante más grandes que los machos, tienen una cresta y un pico más grandes, y una coloración más brillante. El macho del casuario austral puede medir entre 112 y 136 cm, y pesar entre 29 y 34 kg, mientras que las hembras alcanzan entre 140 y 170 cm, y pesan de 46 a 69 kg."
+    }
+  ]
+}
