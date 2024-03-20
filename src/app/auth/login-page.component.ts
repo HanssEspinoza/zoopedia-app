@@ -18,9 +18,7 @@ import { material } from '@material';
         <input type="password" matInput placeholder="Contraseña" />
       </mat-form-field>
 
-      <button mat-button mat-flat-button color="primary">
-        <mat-icon matSuffix>save</mat-icon>Ingresar
-      </button>
+      <button mat-button mat-flat-button color="primary"><mat-icon matSuffix>save</mat-icon>Ingresar</button>
 
       <div class="flex justify-content-end mt-5">
         <a routerLink="/auth/new-account">¿No tienes cuenta?</a>
