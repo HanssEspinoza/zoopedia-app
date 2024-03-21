@@ -1,18 +1,23 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { AnimalsService } from '@core/services';
+import { material } from '@material';
+import { CardComponent } from './components';
 
 @Component({
   selector: 'app-list-page',
   standalone: true,
-  imports: [],
+  imports: [material, CardComponent],
   template: `
-    <ul>
+    <h1>Zoopedia</h1>
+    <mat-divider />
+
+    <div class="grid mb-8 pt-2">
       @for(animal of animalsState.animals; track animal) {
-      <li>
-        {{ animal.name }}
-      </li>
+      <div class="col-12 sm:col-4 md:col-3 xl:col-2">
+        <app-card [animal]="animal" />
+      </div>
       }
-    </ul>
+    </div>
   `,
   styles: ``,
   changeDetection: ChangeDetectionStrategy.OnPush,

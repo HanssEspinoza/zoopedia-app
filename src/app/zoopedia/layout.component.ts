@@ -39,7 +39,7 @@ interface menu {
         <span class="spacer"></span>
         <button mat-button>Salir</button>
       </mat-toolbar>
-      <div class="container">
+      <div class="container p-2">
         <router-outlet />
       </div>
     </mat-sidenav-container>
