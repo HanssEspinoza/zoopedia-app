@@ -3,11 +3,12 @@ import { Component, input } from '@angular/core';
 import { Animal } from '../../core/interfaces';
 import { material } from '@material';
 import { RouterLink } from '@angular/router';
+import { AnimalImagePipe } from '@zoopedia/pipes';
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [material, RouterLink],
+  imports: [material, RouterLink, AnimalImagePipe],
   template: `
     <mat-card>
       <mat-card-header>
@@ -16,6 +17,11 @@ import { RouterLink } from '@angular/router';
       </mat-card-header>
 
       <!-- TODO: Imagen -->
+      <img
+        mat-card-image
+        [src]="animal() | animalImage"
+        [alt]="animal().name"
+      />
 
       <mat-card-content class="mt-2">
         <h4>{{ animal().category }}</h4>

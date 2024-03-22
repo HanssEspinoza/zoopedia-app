@@ -6,6 +6,7 @@ export interface Animal {
   conservation_status: string;
   scientific_name: string;
   description: string;
+  alt_img?: string;
 }
 
 export enum Category {

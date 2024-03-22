@@ -7,6 +7,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatDivider } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatProgressSpinner } from '@angular/material/progress-spinner'
 
 export const material = [
   MatButtonModule,
@@ -18,4 +20,6 @@ export const material = [
   MatListModule,
   MatDivider,
   MatCardModule,
+  MatGridListModule,
+  MatProgressSpinner
 ];
