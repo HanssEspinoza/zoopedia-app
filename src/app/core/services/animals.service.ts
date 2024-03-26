@@ -64,4 +64,17 @@ export class AnimalsService {
         },
       });
   }
+
+  getSuggestions(query: string) {
+    this.#isLoadingAnimals.set(true);
+    return this.#apiService.getAll<Animal[]>(`animals?q=${query}&_limit=6`)
+      .pipe(takeUntilDestroyed(this.#destroyRef))
+      .subscribe({
+        next: (response) => {
+          this.#animals.set(response);
+          this.#isLoadingAnimals.set(false);
+        },
+        error: (err) => console.log(err)
+      })
+  }
 }
