@@ -2,6 +2,8 @@ import { Component, inject, signal } from '@angular/core';
 import { material } from '@material';
 import { FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { AnimalsService } from '@core/services';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { Animal } from '@core/interfaces';
 
 @Component({
   selector: 'app-search-page',
@@ -20,7 +22,11 @@ import { AnimalsService } from '@core/services';
           [matAutocomplete]="auto"
         />
 
-        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-autocomplete
+          autoActiveFirstOption
+          #auto="matAutocomplete"
+          (optionSelected)="onSelectedOption($event)"
+        >
           @for(animal of search; track animal) {
           <mat-option [value]="animal">
             {{ animal.name }}
@@ -38,6 +44,7 @@ import { AnimalsService } from '@core/services';
   styles: ``,
 })
 export class SearchPageComponent {
+  public selectedAnimal = signal<Animal | undefined>(undefined);
   #fb: FormBuilder = inject(FormBuilder);
   #AnimalsService = inject(AnimalsService);
 
@@ -55,5 +62,17 @@ export class SearchPageComponent {
     const value: string = this.searchInput().value || '';
 
     this.#AnimalsService.getSuggestions(value);
+  }
+
+  onSelectedOption(event: MatAutocompleteSelectedEvent): void {
+    if (!event.option.value) {
+      this.selectedAnimal.set(undefined);
+      return;
+    }
+
+    const animal: Animal = event.option.value;
+    this.searchInput().setValue(animal.name);
+
+    this.selectedAnimal.set(animal);
   }
 }
