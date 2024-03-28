@@ -8,8 +8,12 @@ import { MatListModule } from '@angular/material/list';
 import { MatDivider } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { MatProgressSpinner } from '@angular/material/progress-spinner'
-import { MatAutocompleteModule, MatOption } from "@angular/material/autocomplete";
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import {
+  MatAutocompleteModule,
+  MatOption,
+} from '@angular/material/autocomplete';
+import { MatSelectModule } from '@angular/material/select';
 
 export const material = [
   MatButtonModule,
@@ -25,4 +29,5 @@ export const material = [
   MatProgressSpinner,
   MatAutocompleteModule,
   MatOption,
+  MatSelectModule,
 ];
