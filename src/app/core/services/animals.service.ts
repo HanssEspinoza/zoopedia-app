@@ -8,7 +8,7 @@ import {
 
 import { ApiService } from './api.service';
 import { Animal } from '@core/interfaces';
-import { Subscription, catchError, of } from 'rxjs';
+import { Subscription, catchError, map, of } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
 
@@ -67,7 +67,7 @@ export class AnimalsService {
       });
   }
 
-  getSuggestions(query: string) {
+  getSuggestions(query: string): Subscription {
     return this.#apiService
       .getAll<Animal[]>(`animals?q=${query}&_limit=6`)
       .pipe(takeUntilDestroyed(this.#destroyRef))
@@ -77,5 +77,32 @@ export class AnimalsService {
         },
         error: (err) => console.log(err),
       });
+  }
+
+  addAnimal(animal: Animal): Subscription {
+    return this.#apiService
+      .post<Animal>('animals', animal)
+      .pipe(takeUntilDestroyed(this.#destroyRef))
+      .subscribe();
+  }
+
+  updateAnimal(animal: Animal): Subscription {
+    if (!animal.id) throw Error('El Id del animal es requerido');
+
+    return this.#apiService
+      .put<Animal>('animals', animal, animal.id)
+      .pipe(takeUntilDestroyed(this.#destroyRef))
+      .subscribe();
+  }
+
+  deleteAnimal(id: string): Subscription {
+    return this.#apiService
+      .delete('animals', id)
+      .pipe(
+        catchError((err) => of(false)),
+        map((resp) => true)
+      )
+      .pipe(takeUntilDestroyed(this.#destroyRef))
+      .subscribe();
   }
 }
