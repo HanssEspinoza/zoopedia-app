@@ -21,16 +21,16 @@ import { AnimalsService } from '@core/services';
         />
 
         <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-          @for(animal of animals.animals; track animal) {
+          @for(animal of search; track animal) {
           <mat-option [value]="animal">
             {{ animal.name }}
           </mat-option>
-          @if(animals.animals.length === 0 && searchInput().value &&
+          } @if(search.length === 0 && searchInput().value &&
           searchInput().value.length > 0) {
           <mat-option value="">
             No se encontró nada el el termino {{ searchInput().value }}
           </mat-option>
-          } }
+          }
         </mat-autocomplete>
       </mat-form-field>
     </div>
@@ -43,6 +43,10 @@ export class SearchPageComponent {
 
   get animals() {
     return this.#AnimalsService.animalsState();
+  }
+
+  get search() {
+    return this.#AnimalsService.search();
   }
 
   public searchInput = signal<FormControl>(this.#fb.control(''));

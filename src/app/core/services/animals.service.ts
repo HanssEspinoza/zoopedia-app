@@ -34,6 +34,8 @@ export class AnimalsService {
     isLoadingAnimal: this.#isLoadingAnimal(),
   }));
 
+  public search = signal<Animal[]>([]);
+
   getAnimals(): Subscription {
     this.#isLoadingAnimals.set(true);
     return this.#apiService
@@ -66,15 +68,14 @@ export class AnimalsService {
   }
 
   getSuggestions(query: string) {
-    this.#isLoadingAnimals.set(true);
-    return this.#apiService.getAll<Animal[]>(`animals?q=${query}&_limit=6`)
+    return this.#apiService
+      .getAll<Animal[]>(`animals?q=${query}&_limit=6`)
       .pipe(takeUntilDestroyed(this.#destroyRef))
       .subscribe({
         next: (response) => {
-          this.#animals.set(response);
-          this.#isLoadingAnimals.set(false);
+          this.search.set(response);
         },
-        error: (err) => console.log(err)
-      })
+        error: (err) => console.log(err),
+      });
   }
 }
